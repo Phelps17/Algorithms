@@ -4,6 +4,15 @@ public class Main {
 	public static void main(String args[]) {
 		int[] randIntArray = createNewIntArray(500);
 		printIntArray(randIntArray);
+		SelectionSort.sort(randIntArray);
+		isSorted(randIntArray);
+		printIntArray(randIntArray);
+		
+		randIntArray = createNewIntArray(500);
+		printIntArray(randIntArray);
+		
+		isSorted(randIntArray);
+		printIntArray(randIntArray);
 	}
 	
 	static int[] createNewIntArray(int size) {
@@ -26,6 +35,19 @@ public class Main {
 				count = 0;
 			}
 			count++;
+		}
+		System.out.println("----------------------"
+				+ "-------------------------------"
+				+ "-------------------------------"
+				+ "----------------");
+	}
+	
+	static void isSorted(int[] array) {
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] < array[i-1]) {
+				System.out.println("List not properly sorted!");
+				System.exit(0);
+			}
 		}
 	}
 }
