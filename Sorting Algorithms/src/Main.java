@@ -13,6 +13,10 @@ public class Main {
 		randIntArray = createNewIntArray(1000);
 		ShellSort.sort(randIntArray);
 		isSorted(randIntArray, "Shell Sort");
+		
+		randIntArray = createNewIntArray(1000);
+		BinaryInsertion.sort(randIntArray);
+		isSorted(randIntArray, "Binary Insertion Sort");
 	}
 	
 	static int[] createNewIntArray(int size) {
