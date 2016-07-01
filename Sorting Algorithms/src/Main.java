@@ -3,19 +3,20 @@ import java.util.Random;
 public class Main {
 	public static void main(String args[]) {
 		int[] randIntArray = createNewIntArray(1000);
-		printIntArray(randIntArray);
 		SelectionSort.sort(randIntArray);
-		isSorted(randIntArray);
-		printIntArray(randIntArray);
+		isSorted(randIntArray, "Selection Sort");
 		
 		randIntArray = createNewIntArray(1000);
-		printIntArray(randIntArray);
 		InsertSort.sort(randIntArray);
-		isSorted(randIntArray);
-		printIntArray(randIntArray);
+		isSorted(randIntArray, "Insert Sort");
+		
+		randIntArray = createNewIntArray(1000);
+		ShellSort.sort(randIntArray);
+		isSorted(randIntArray, "Shell Sort");
 	}
 	
 	static int[] createNewIntArray(int size) {
+		System.out.println("Generating " + size + " random numbers...");
 		Random rand = new Random();
 		int[] newArray = new int[size];
 		
@@ -42,12 +43,14 @@ public class Main {
 				+ "----------------");
 	}
 	
-	static void isSorted(int[] array) {
+	static void isSorted(int[] array, String name) {
 		for (int i = 1; i < array.length; i++) {
 			if (array[i] < array[i-1]) {
 				System.out.println("List not properly sorted!");
 				System.exit(0);
 			}
 		}
+		
+		System.out.println(name + " sorted successfully!");
 	}
 }
