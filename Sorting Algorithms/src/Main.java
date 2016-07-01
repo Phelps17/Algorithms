@@ -2,15 +2,15 @@ import java.util.Random;
 
 public class Main {
 	public static void main(String args[]) {
-		int[] randIntArray = createNewIntArray(500);
+		int[] randIntArray = createNewIntArray(1000);
 		printIntArray(randIntArray);
 		SelectionSort.sort(randIntArray);
 		isSorted(randIntArray);
 		printIntArray(randIntArray);
 		
-		randIntArray = createNewIntArray(500);
+		randIntArray = createNewIntArray(1000);
 		printIntArray(randIntArray);
-		
+		InsertSort.sort(randIntArray);
 		isSorted(randIntArray);
 		printIntArray(randIntArray);
 	}
