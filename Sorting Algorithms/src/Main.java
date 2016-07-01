@@ -17,6 +17,10 @@ public class Main {
 		randIntArray = createNewIntArray(1000);
 		BinaryInsertion.sort(randIntArray);
 		isSorted(randIntArray, "Binary Insertion Sort");
+		
+		randIntArray = createNewIntArray(1000);
+		MergeSort.sort(randIntArray);
+		isSorted(randIntArray, "Merge Sort");
 	}
 	
 	static int[] createNewIntArray(int size) {
@@ -50,7 +54,7 @@ public class Main {
 	static void isSorted(int[] array, String name) {
 		for (int i = 1; i < array.length; i++) {
 			if (array[i] < array[i-1]) {
-				System.out.println("List not properly sorted!");
+				System.out.println(name + " failed!");
 				System.exit(0);
 			}
 		}
