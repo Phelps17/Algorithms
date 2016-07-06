@@ -29,6 +29,10 @@ public class Main {
 		randIntArray = createNewIntArray(1000);
 		BottomUpMergeSort.sort(randIntArray);
 		isSorted(randIntArray, "Bottom Up Merge Sort");
+		
+		randIntArray = createNewIntArray(1000);
+		QuickSort.sort(randIntArray);
+		isSorted(randIntArray, "Quick Sort");
 	}
 	
 	static int[] createNewIntArray(int size) {

@@ -3,7 +3,7 @@ public class QuickSort {
 	private QuickSort() {}
 	
 	public static void sort(int[] array) {
-		//random shuffle array
+		Shuffling.shuffle(array);
 		sort(array, 0, array.length-1);
 	}
 	
@@ -13,7 +13,7 @@ public class QuickSort {
 		
 		int i = partition(array, low, high);
 		sort(array, low, i-1);
-		sort(array, i, high);
+		sort(array, i+1, high);
 	}
 	
 	private static int partition(int[] array, int low, int high) {
@@ -49,5 +49,11 @@ public class QuickSort {
 		
 		//now array[low ...j-1] <= array[j] <= a[j+1 ... high]
 		return j;
+	}
+	
+	private static void exchange(int[] array, int i, int j) {
+		int swap = array[i];
+		array[i] = array[j];
+		array[j] = swap;
 	}
 }
