@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class UndirectedGraph {
+public class WeightedGraph {
 	private ArrayList<Vertex> vertexList;
 	
-	public UndirectedGraph() {
+	public WeightedGraph() {
 		this.vertexList = new ArrayList<Vertex>();
 	}
 	
@@ -15,12 +15,12 @@ public class UndirectedGraph {
 		this.vertexList.add(new Vertex(vertexID));
 	}
 	
-	public void addEdge(int v1, int v2) {
+	public void addEdge(int v1, int v2, int weight) {
 		Vertex vertex1 = getVertexWithID(v1);
 		Vertex vertex2 = getVertexWithID(v2);
 		
-		vertex1.addEdgeTo(vertex2.getVertexID(), 0);
-		vertex2.addEdgeTo(vertex1.getVertexID(), 0);
+		vertex1.addEdgeTo(vertex2.getVertexID(), weight);
+		vertex2.addEdgeTo(vertex1.getVertexID(), weight);
 	}
 	
 	public Vertex getVertexWithID(int id) {
@@ -35,9 +35,9 @@ public class UndirectedGraph {
 	
 	public void printGraph() {
 		for (Vertex vertex : this.vertexList) {
-			System.out.print(vertex.getVertexID());
+			System.out.print("[" + vertex.getVertexID() + "]");
 			for (Edge edge : vertex.edges()) {
-				System.out.print("->" + edge.getEnd());
+				System.out.print("--" + edge.getWeight() + "-->" + "[" + edge.getEnd() +"]");
 			}
 			System.out.println();
 		}

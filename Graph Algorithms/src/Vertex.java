@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
 public class Vertex {
-	private ArrayList<Integer> edges;
+	private ArrayList<Edge> edges;
 	private int vertexID;
 	
 	public Vertex(int id) {
-		this.edges = new ArrayList<Integer>();
+		this.edges = new ArrayList<Edge>();
 		this.vertexID = id;
 	}
 	
@@ -13,15 +13,16 @@ public class Vertex {
 		return this.vertexID;
 	}
 	
-	public ArrayList<Integer> edges() {
+	public ArrayList<Edge> edges() {
 		return this.edges;
 	}
 	
-	public void addEdge(int otherVertexID) {
-		this.edges.add(otherVertexID);
+	public void addEdgeTo(int otherVertexID, int weight) {
+		Edge newEdge = new Edge(this.vertexID, otherVertexID, weight);
+		this.edges.add(newEdge);
 	}
 	
-	public void removeEdge(int otherVertexID) {
+	public void removeEdgeTo(int otherVertexID) {
 		this.edges.remove(otherVertexID);
 	}
 }

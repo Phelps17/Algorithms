@@ -18,7 +18,7 @@ public class Digraph {
 	public void addEdge(int start_vertex, int end_vertex) {
 		Vertex vertex1 = getVertexWithID(start_vertex);
 		
-		vertex1.addEdge(end_vertex);
+		vertex1.addEdgeTo(end_vertex, 0);
 	}
 	
 	public Vertex getVertexWithID(int id) {
@@ -34,8 +34,8 @@ public class Digraph {
 	public void printGraph() {
 		for (Vertex vertex : this.vertexList) {
 			System.out.print(vertex.getVertexID());
-			for (int edge : vertex.edges()) {
-				System.out.print("->" + edge);
+			for (Edge edge : vertex.edges()) {
+				System.out.print("->" + edge.getEnd());
 			}
 			System.out.println();
 		}
