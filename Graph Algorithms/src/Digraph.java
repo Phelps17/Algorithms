@@ -22,11 +22,47 @@ public class Digraph {
 		vertex1.addEdgeTo(vertex2, 0);
 	}
 	
+	public Vertex getVertexWithID(int id) {
+		for (Vertex vertex : this.vertexList) {
+			if (vertex.getVertexID() == id) {
+				return vertex;
+			}
+		}
+		
+		return null;
+	}
+	
+	public boolean dfsPathTo(Vertex startVertex, Vertex endVertex) {
+		for (Vertex vertex : this.getVertexList()) {
+			vertex.unmark();
+		}
+		
+		return this._dfsPathTo(startVertex, endVertex);
+	}
+	
+	public boolean _dfsPathTo(Vertex startVertex, Vertex endVertex) {
+		startVertex.mark();
+		
+		if (startVertex.equals(endVertex)) return true;
+		
+		for (Edge edge : startVertex.edges()) {
+			if (!edge.getEnd().isMarked()) {
+				if (this._dfsPathTo(edge.getEnd(), endVertex)) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	
+	
 	public void printGraph() {
 		for (Vertex vertex : this.vertexList) {
-			System.out.print(vertex.getVertexID());
+			System.out.print("[" + vertex.getVertexID() + "]");
 			for (Edge edge : vertex.edges()) {
-				System.out.print("->" + edge.getEnd().getVertexID());
+				System.out.print(" -> [" + edge.getEnd().getVertexID() + "]");
 			}
 			System.out.println();
 		}

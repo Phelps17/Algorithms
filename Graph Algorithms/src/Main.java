@@ -20,6 +20,7 @@ public class Main {
 		graph.addEdge(7, 4);
 		System.out.println("Undirected Graph:");
 		graph.printGraph();
+		System.out.println(graph.dfsPathTo(graph.getVertexWithID(3), graph.getVertexWithID(9)));
 		System.out.println();
 		
 		Digraph digraph = new Digraph();
@@ -39,11 +40,14 @@ public class Main {
 		digraph.addEdge(8, 3);
 		digraph.addEdge(7, 1);
 		digraph.addEdge(7, 4);
+		digraph.addEdge(1, 2);
+		digraph.addEdge(2, 9);
 		System.out.println("Digraph:");
 		digraph.printGraph();
+		System.out.println(digraph.dfsPathTo(digraph.getVertexWithID(7), digraph.getVertexWithID(6)));
 		System.out.println();
 		
-		WeightedGraph wgraph = new WeightedGraph();
+		/*WeightedGraph wgraph = new WeightedGraph();
 		for (int i = 0; i < 10; i++) {
 			wgraph.addVertex(i);
 		}
@@ -83,6 +87,6 @@ public class Main {
 		wdgraph.addEdge(7, 4, 12);
 		System.out.println("Weighted Directed Graph:");
 		wdgraph.printGraph();
-		System.out.println();
+		System.out.println();*/
 	}
 }

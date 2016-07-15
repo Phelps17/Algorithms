@@ -3,10 +3,12 @@ import java.util.ArrayList;
 public class Vertex {
 	private ArrayList<Edge> edges;
 	private int vertexID;
+	private boolean marked;
 	
 	public Vertex(int id) {
 		this.edges = new ArrayList<Edge>();
 		this.vertexID = id;
+		this.marked = false;
 	}
 	
 	public int getVertexID() {
@@ -24,5 +26,17 @@ public class Vertex {
 	
 	public void removeEdgeTo(int otherVertexID) {
 		this.edges.remove(otherVertexID);
+	}
+	
+	public boolean isMarked() {
+		return this.marked;
+	}
+	
+	public void mark() {
+		this.marked = true;
+	}
+	
+	public void unmark() {
+		this.marked = false;
 	}
 }
