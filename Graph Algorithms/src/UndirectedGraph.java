@@ -16,11 +16,11 @@ public class UndirectedGraph {
 	}
 	
 	public void addEdge(int v1, int v2) {
-		Vertex vertex1 = getVertexWithID(v1);
-		Vertex vertex2 = getVertexWithID(v2);
+		Vertex vertex1 = this.getVertexWithID(v1);
+		Vertex vertex2 = this.getVertexWithID(v2);
 		
-		vertex1.addEdgeTo(vertex2.getVertexID(), 0);
-		vertex2.addEdgeTo(vertex1.getVertexID(), 0);
+		vertex1.addEdgeTo(vertex2, 0);
+		vertex2.addEdgeTo(vertex1, 0);
 	}
 	
 	public Vertex getVertexWithID(int id) {
@@ -37,7 +37,7 @@ public class UndirectedGraph {
 		for (Vertex vertex : this.vertexList) {
 			System.out.print(vertex.getVertexID());
 			for (Edge edge : vertex.edges()) {
-				System.out.print("->" + edge.getEnd());
+				System.out.print("->" + edge.getEnd().getVertexID());
 			}
 			System.out.println();
 		}
