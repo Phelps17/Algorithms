@@ -63,5 +63,26 @@ public class Main {
 		System.out.println("Weighted Graph:");
 		wgraph.printGraph();
 		System.out.println();
+		
+		WeightedDirectedGraph wdgraph = new WeightedDirectedGraph();
+		for (int i = 0; i < 10; i++) {
+			wdgraph.addVertex(i);
+		}
+		
+		wdgraph.addEdge(0, 2, 1);
+		wdgraph.addEdge(0, 3, 2);
+		wdgraph.addEdge(3, 1, 3);
+		wdgraph.addEdge(5, 4, 4);
+		wdgraph.addEdge(2, 2, 5);
+		wdgraph.addEdge(3, 3, 6);
+		wdgraph.addEdge(8, 1, 7);
+		wdgraph.addEdge(9, 4, 8);
+		wdgraph.addEdge(9, 2, 9);
+		wdgraph.addEdge(8, 3, 10);
+		wdgraph.addEdge(7, 1, 11);
+		wdgraph.addEdge(7, 4, 12);
+		System.out.println("Weighted Directed Graph:");
+		wdgraph.printGraph();
+		System.out.println();
 	}
 }
