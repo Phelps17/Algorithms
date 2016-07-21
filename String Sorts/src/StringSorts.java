@@ -9,8 +9,14 @@ public class StringSorts {
 		MSDRadixSort.sort(array2);
 		printArray(array2);
 		
-		String[] array3 = {"She", "sells", "seashells", "by", "the", "seashore"};
-		OptimizedMSDRadixSort.sort(array3);
+		String[] array3 = {"She", "sells", "seashells", "by", "the", "seashore",
+							"Peter", "Piper", "picked", "a", "peck", "of", "pickled", "peppers",
+							"Betty", "Botter", "bought", "some", "butter", "But", "she", "said", "the", "butter’s", "bitter",
+							"How", "much", "wood", "would", "a", "woodchuck", "chuck", "if", "a", "woodchuck", "could", "chuck", "wood",
+							"Fuzzy", "Wuzzy", "was", "a", "bear", "Fuzzy", "Wuzzy", "had", "no", "hair", "Fuzzy", "Wuzzy", "wasn’t", "fuzzy", "was", "he",
+							"You", "know", "New", "York", "you", "need", "New", "York", "you", "know", "you", "need", "unique", "New", "York"};
+
+		MSDRadixSort.sort(array3);
 		printArray(array3);
 	}
 	
