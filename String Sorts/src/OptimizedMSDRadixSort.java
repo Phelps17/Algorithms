@@ -34,7 +34,7 @@ public class OptimizedMSDRadixSort {
 
 		for (int r = 0; r < ASCII_SYMBOLS; r++) {
 			//sort R subarrays recursively
-			sort(array, aux_array, low + count[r], low + count[r+1] -1, d+1);
+			insertSort(array, low + count[r], low + count[r+1] -1, d+1);
 		}
 	}
 
