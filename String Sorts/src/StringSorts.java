@@ -5,6 +5,11 @@ public class StringSorts {
 		printArray(array);
 		LSDRadixSort.sort(array, 4);
 		printArray(array);
+		
+		String[] array2 = {"helping", "lives", "lovers", "lit", "bars", "car", "holding", "firey", "bar"};
+		printArray(array2);
+		MSDRadixSort.sort(array2);
+		printArray(array2);
 	}
 	
 	private static void printArray(String array[]) {
