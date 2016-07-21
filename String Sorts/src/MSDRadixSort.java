@@ -1,42 +1,47 @@
 
 public class MSDRadixSort {
-	public static final int R = 256;
+	public static final int ASCII_SYMBOLS = 256;
 	
-	public static void sort(String[] a) {
-		String[] aux = new String[a.length];
-		sort(a, aux, 0, a.length-1, 0);
+	//main sort call
+	public static void sort(String[] array) {
+		String[] aux_array = new String[array.length];
+		sort(array, aux_array, 0, array.length-1, 0);
 	}
 	
-	private static void sort(String[] a, String[] aux, int lo, int hi, int d) {
-		if (hi <= lo) {
+	//internal recursive sort call
+	private static void sort(String[] array, String[] aux_array, int low, int high, int d) {
+		//check for return
+		if (high <= low) {
 			return;
 		}
-		int[] count = new int[R+2];
+		
+		int[] count = new int[ASCII_SYMBOLS+2];
 		
 		//key index counting
-		for (int i = lo; i <= hi; i++) {
-			count[charAt(a[i], d) + 2]++;
+		for (int i = low; i <= high; i++) {
+			count[charAt(array[i], d) + 2]++;
 		}
-		for (int r = 0; r < R+1; r++) {
+		for (int r = 0; r < ASCII_SYMBOLS+1; r++) {
 			count[r+1] += count[r];
 		}
-		for (int i = lo; i <= hi; i++) {
-			aux[count[charAt(a[i], d) + 1]++] = a[i];
+		for (int i = low; i <= high; i++) {
+			aux_array[count[charAt(array[i], d) + 1]++] = array[i];
 		}
-		for (int i = lo; i <= hi; i++) {
-			a[i] = aux[i - lo];
+		for (int i = low; i <= high; i++) {
+			array[i] = aux_array[i - low];
 		}
 		//end key index counting
 		
-		for (int r = 0; r < R; r++) {
+		for (int r = 0; r < ASCII_SYMBOLS; r++) {
 			//sort R subarrays recursively
-			sort(a, aux, lo + count[r], lo + count[r+1] -1, d+1);
+			sort(array, aux_array, low + count[r], low + count[r+1] -1, d+1);
 		}
 	}
 	
-	private static int charAt(String s, int d) {
-		if (d < s.length()) {
-			return s.charAt(d);
+	//find char at without falling out of bounds
+	private static int charAt(String string, int index) {
+		if (index < string.length()) {
+			return string.charAt(index);
 		}
 		else return -1;
 	}
