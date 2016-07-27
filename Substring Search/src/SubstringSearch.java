@@ -10,6 +10,7 @@ public class SubstringSearch {
 	final static String pattern2 = "f star-cro";
 	final static String pattern3 = "tears";
 	final static String pattern4 = "mutiny";
+	final static String pattern5 = "olds, bo";
 	
 	public static void main(String[] args) {
 		System.out.println("=== Brute Force ===");
@@ -26,7 +27,10 @@ public class SubstringSearch {
 		int bruteIndex4 = BruteForce.search(pattern4, fullText);
 		checkSearchResult(fullText, pattern4, bruteIndex4);
 		
-		System.out.println("----------------------------------------------");
+		int bruteIndex5 = BruteForce.search(pattern5, fullText);
+		checkSearchResult(fullText, pattern5, bruteIndex5);
+		
+		System.out.println("--------------------------------------------------");
 		System.out.println("=== KMP Search ===");
 		
 		KMP kmpAutomaton1 = new KMP(pattern1);
@@ -44,6 +48,34 @@ public class SubstringSearch {
 		KMP kmpAutomaton4 = new KMP(pattern4);
 		int kmpIndex4 = kmpAutomaton4.search(fullText);
 		checkSearchResult(fullText, pattern4, kmpIndex4);
+		
+		KMP kmpAutomaton5 = new KMP(pattern5);
+		int kmpIndex5 = kmpAutomaton5.search(fullText);
+		checkSearchResult(fullText, pattern5, kmpIndex5);
+		
+		System.out.println("--------------------------------------------------");
+		System.out.println("=== Boyer Moore ===");
+
+		BoyerMoore bm1 = new BoyerMoore(pattern1);
+		int bmIndex1 = bm1.search(fullText);
+		checkSearchResult(fullText, pattern1, bmIndex1);
+
+		BoyerMoore bm2 = new BoyerMoore(pattern2);
+		int bmIndex2 = bm2.search(fullText);
+		checkSearchResult(fullText, pattern2, bmIndex2);
+
+		BoyerMoore bm3 = new BoyerMoore(pattern3);
+		int bmIndex3 = bm3.search(fullText);
+		checkSearchResult(fullText, pattern3, bmIndex3);
+
+		BoyerMoore bm4 = new BoyerMoore(pattern4);
+		int bmIndex4 = bm4.search(fullText);
+		checkSearchResult(fullText, pattern4, bmIndex4);
+		
+		BoyerMoore bm5 = new BoyerMoore(pattern5);
+		int bmIndex5 = bm5.search(fullText);
+		checkSearchResult(fullText, pattern5, bmIndex5);
+		
 	}
 	
 	public static void checkSearchResult(String fullText, String pattern, int index) {
